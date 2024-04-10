@@ -1,0 +1,260 @@
+@font-face {
+    font-weight: 300;
+    font-family: SFDisplay Calendar Day Of Month;
+    src: url(/fonts/SFUIDisplay-Thin.woff) format("woff")
+}
+
+@font-face {
+    font-weight: 500;
+    font-family: SFText Calendar Day Of Week;
+    src: url(/fonts/SFUIText-Medium.woff) format("woff")
+}
+
+html {
+    background-color: #fff;
+    min-height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+
+html.facetime-dark {
+    background-color: #000
+}
+
+.notice-view {
+    position: absolute;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    inline-size: 100%;
+    min-block-size: 87px;
+    -webkit-border-after: 1px solid #ddd;
+    border-block-end: 1px solid #ddd;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+body {
+    font-family: SFUIText, Helvetica Neue, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -ms-content-zooming: none
+}
+
+.ye {
+    background-color: rgb(255, 209, 28);
+}
+
+.re {
+    background-color: rgb(255, 59, 48);
+}
+
+.g1 {
+    background-color: rgb(169, 162, 154);
+}
+
+.g2 {
+    background-color: rgb(228, 230, 232);
+}
+
+.g25 {
+    background-color: rgb(238, 239, 242);
+}
+
+.g3 {
+    background-color: rgb(249, 249, 249);
+}
+
+.fg1 {
+    color: rgb(169, 162, 154);
+
+}
+
+.fg2 {
+    color: rgb(228, 230, 232);
+}
+
+.fg3 {
+    color: rgb(249, 249, 249);
+}
+
+.green {
+    color: green;
+}
+
+.o0 {
+    background: rgba(255, 255, 255, 0);
+    /* opacity: 0; */
+}
+
+.o3 {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* color end */
+.r-15 {
+    border-radius: 15px;
+}
+
+.r-10 {
+    border-radius: 10px;
+}
+
+/* radius end */
+
+.blur-fixed-footer {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    transition: background-color 0.6s;
+}
+
+.need-blur {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: saturate(180%) blur(55px);
+    -webkit-backdrop-filter: saturate(180%) blur(55px);
+}
+
+.blur-fixed-footer * {
+    color: rgb(29, 29, 27);
+}
+
+.blur-fixed-footer i:hover {
+
+    color: hsl(190, 96.63%, 34.9%);
+}
+
+.all_footer {
+    background: hsl(221, 88.65%, 44.9%);
+    animation: shinningEffect 30s linear 2s infinite alternate;
+}
+
+.animate-warning {
+    animation-name: shinningError;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
+    /* animation: shinningError 10s ease-out; */
+}
+
+/* .all_footer>p {
+    color: white;
+} */
+
+@keyframes hue {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes shinningEffect {
+    0% {
+        box-shadow: 0 1rem 3rem hsla(221, 88.65%, 44.9%, 0.175);
+        background: hsla(221, 88.65%, 44.9%, 1);
+    }
+
+    25% {
+        box-shadow: 0 1rem 3rem hsla(190, 96.63%, 34.9%, 0.175);
+        background: hsla(190, 96.63%, 34.9%, 1);
+    }
+
+    40% {
+        box-shadow: 0 1rem 3rem hsla(205, 96.63%, 34.9%, 0.175);
+        background: hsla(205, 96.63%, 34.9%, 1);
+    }
+
+    75% {
+        box-shadow: 0 1rem 3rem hsla(214, 25.87%, 28.039%, 0.175);
+
+        background: hsla(214, 25.87%, 28.039%, 1);
+    }
+
+    100% {
+        box-shadow: 0 1rem 3rem hsla(221, 88.65%, 44.9%, 0.175);
+
+        background: hsla(221, 88.65%, 44.9%, 1);
+    }
+}
+
+/* rgba(255, 37, 37, 0.8) */
+
+@keyframes shinningError {
+    0% {
+        background: white;
+    }
+
+    10% {
+        background: #ffc107;
+    }
+
+    100% {
+        background: white;
+    }
+}
+
+/* footer end */
+
+#head_slider_bar {
+    height: 40px;
+    width: 100%;
+}
+
+.head_item {
+    color: gray;
+}
+
+.head_item:hover {
+    color: dodgerblue;
+    transform: scale(1.1, 1.1);
+}
+
+/* for app icons */
+a.dropdown-item>i {
+    background-color: white;
+}
+
+/* top head bar end */

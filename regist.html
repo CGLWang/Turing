@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/icloud_logo_sm.png" type="image/png" />
+    <title>Regist to Canary</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <link href="https://cdn.staticfile.org/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+    <style>
+        *:not(.all_footer *) {
+            transition: all 200ms ease-out;
+        }
+
+        .all_footer {
+            border-radius: 20px;
+            background: hsl(221, 88.65%, 44.9%);
+            animation: shinningEffect 30s linear 2s infinite alternate;
+            -moz-animation: shinningEffect 30s linear 2s infinite alternate;
+            -webkit-animation: shinningEffect 30s linear 2s infinite alternate;
+            height: 11rem;
+            overflow: hidden;
+        }
+
+
+        @keyframes shinningEffect {
+            0% {
+                background: hsl(221, 88.65%, 44.9%);
+            }
+
+            25% {
+                background: hsl(190, 96.63%, 34.9%);
+            }
+
+            40% {
+                background: hsl(205, 96.63%, 34.9%);
+            }
+
+            75% {
+                background: hsl(214, 25.87%, 28.039%);
+            }
+
+            100% {
+                background: hsl(221, 88.65%, 44.9%);
+            }
+        }
+
+        .need-blur2 {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .need-blur {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .need-blur-above {
+            background: rgba(255, 255, 255, 0.8);
+            /* backdrop-filter: saturate(180%) blur(20px); */
+            /* -webkit-backdrop-filter: saturate(180%) blur(20px); */
+        }
+
+
+
+        .o0 {
+            background: rgba(255, 255, 255, 0);
+        }
+
+        .r-15 {
+            border-radius: 15px;
+        }
+
+        .r-10 {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="all_footer  text-white mt-4 p-5 shadow-lg">
+            <div class="d-flex">
+                <h1> Wellcome to Canary.</h1>
+            </div>
+            <p>register your account here</p>
+        </div>
+        <script>
+            var titles = [['Wellcome to Canary.', 'register your account here'],
+            ['<i class="bi bi-emoji-smile"></i> Who\'s it?', 'please tell us your infomation'],
+            ['Safty? At ease', 'Your password is encrypted, no one can see it, not even us'],
+            ['<i class="bi bi-lock"></i> We won\'t share your infomation.', ''],
+            ['<i class="bi bi-house-fill"></i> Visit our home page', 'explore more features'],
+            ['Become a sponsor?', 'the link is below']]
+            var now_at = 0
+            function fade_in() {
+                let s = titles[now_at]
+                $('.all_footer h1').html(s[0])
+                $('.all_footer p').text(s[1])
+                $('.all_footer h1, .all_footer p').fadeIn(1000)
+            }
+            function switch_title() {
+                now_at++;
+                if (now_at >= titles.length)
+                    now_at = 0;
+                $('.all_footer h1, .all_footer p').fadeOut(1000, fade_in)
+            }
+            setInterval(switch_title, 10000)
+        </script>
+        <form action="" method="POST" class=" mt-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-2 my-4">
+                <div class="col">
+                    <div class="form-floating  form-group mt-4">
+                        <input type="text" name="first_name" class="form-control" id="first_name"
+                            placeholder="Enter your first name" maxlength="16" required>
+                        <label for="name">First Name</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating form-group mt-4">
+                        <input type="text" name="last_name" class="form-control" id="last_name"
+                            placeholder="Enter your last name" maxlength="16" required>
+                        <label for="name">Last Name</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-2 my-4">
+                <div class="col">
+                    <div class="form-floating form-group mt-4">
+                        <input type="email" name="email" class="form-control " id="email" aria-describedby="emailHelp"
+                            placeholder="Enter email" maxlength="63" required>
+                        <label for="exampleInputEmail1">Email address</label>
+                        <div class="invalid-feedback">invalid email address</div>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else. The email will be served as your account.</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating form-group mt-4">
+                        <input type="password" name="password" class="form-control " id="password"
+                            placeholder="Password" minlength="6" maxlength="256" required>
+                        <label for="exampleInputPassword1">Password</label>
+                        <div class="invalid-feedback">invalid password</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 my-4 align-items-center">
+                <div class="row align-items-center mt-4">
+                    <div class="col-2">
+                        <label>Birthday</label>
+                    </div>
+                    <div class="col">
+                        <input type="date" class=" flex-grow-1 ms-2" id="birthday" name="birthday"
+                            placeholder="what's your birthday" style="width: 100%;height: 2.3rem;" novalidate />
+                    </div>
+                </div>
+                <div class="row align-items-center mt-4">
+                    <div class="col-2">
+                        <label class="">Gender</label>
+                    </div>
+                    <div class="col">
+                        <select class=" form-select ms-2" id="gender" novalidate>
+                            <option selected>keep secret</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-floating form-group mt-4">
+                <input type="text" name="devices" class=" form-control" id="devices"
+                    placeholder="Enter your device ID, separate by comma" maxlength="512" novalidate>
+                <label for="exampleInputDevices">Devices</label>
+                <small id="deviceHelp" class="form-text text-muted">The device ID is a unique serial number for a
+                    device,
+                    if you have more than one device separate them by comma.</small>
+            </div>
+            <div class="form-check mt-2">
+                <input type="checkbox" name="news" class="form-check-input" id="news">
+                <label class="form-check-label" for="exampleCheck1">Newsletter</label>
+                <small id="subHelp" class="form-text text-muted">subscribe our news</small>
+            </div>
+
+            <div class="d-flex justify-content-end align-items-end mx-4 mb-4">
+                <div id="submit_btn" class="btn btn-primary mt-4 ms-2 shadow-lg rounded-3">Submit
+                </div>
+            </div>
+        </form>
+        <div style="width: 100%;height: 50px;"></div>
+    </div>
+    <footer class=" text-center text-lg-start text-muted fixed-bottom need-blur2">
+        <!-- Copyright -->
+        <div class="text-center p-4">
+            <a class="text-reset" href="/home.html"><small>Home</small></a> |
+            <a class="text-reset" data-bs-toggle="modal" data-bs-target="#tr_mod"><small>Terms & Conditions</small></a>
+            |
+            <!-- <button type="button" class="btn btn-primary" >
+                Launch static backdrop modal
+            </button> -->
+
+            <a class="text-reset" data-bs-toggle="modal" data-bs-target="#sp_mod"><small>Become a Sponsor</small></a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Modal -->
+    <div class="modal fade" id="verify_modal" data-bs-backdrop="false" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content shadow-lg r-15 need-blur" style="border-radius: 15px;">
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dem_title">verify your password</h5>
+                </div>
+                <div class="modal-body rounded-3">
+                    <div class="container-fluid">
+                        <span id="dem_text"> Please enter the password again
+                        </span>
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <a href="/account/regist/">
+                                    <i id="dem_icon" class="text-warning bi bi-exclamation-circle "
+                                        style="font-size: 4rem;"></i>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <input class="rounded-3 shadow border animate__animated need-blur-above"
+                                        type="password" id="psw_again" placeholder="Enter your password again"
+                                        style="height: 40px;" />
+                                </div>
+                                <div class="row mt-2 ">
+                                    <input
+                                        class="d-none rounded-3 shadow border input-large animate__animated need-blur-above"
+                                        type="text" id="verify_code" name="token" placeholder="verification code"
+                                        style="height: 40px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="last_btn">Cancel
+                    </button>
+                    <button type="button" class="btn btn-outline-primary border-0" id="next_btn">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Vertically centered scrollable modal -->
+    <div class="modal fade o0" id="tr_mod" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog o0 modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content  r-15"
+                style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px) saturate(180%);-webkit-backdrop-filter: saturate(180%) blur(20px);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Terms & Conditions</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div id=tr_body class="modal-body">
+                    <p>&nbsp;&nbsp;We strongly recommend you to read "Terms&Conditions" carefuly before you start using
+                        our services.</p>
+                    <p>1.The email as your account ID, we won't share your email with anyone, and the email
+                        will be only way to alter your account settings.
+                        By checking this option(Newsletter), you consent to us sending you advertising emails through
+                        this email
+                        address.</p>
+                    <p>2.Your infomation like name will be store on cloud so we can provide a better server
+                        for you,we do not provide this information to any third-party.</p>
+                    <p>3.We promise not to harm your interests, but we are not responsible for the
+                        consequences of malicious or improper use of our System either by you or others.</p>
+                    <p>4.You are not permitted to use the System for any commercial activities.</p>
+                    <p>5.The final interpretation of these Terms shall be vested in us.</p>
+
+                    <p>6.By registering for the System, you agree to all the above terms.</p>
+                    <hr>
+                    <p>&nbsp;&nbsp;在使用本系统所提供的服务前，我们强烈建议阁下详细阅读以下条款。</p>
+                    <p>1.阁下所填写的电子邮件将做为你的系统账号使用，其是更改你的账户设置的唯一认证方式，我们不会向第三方泄露你的电子邮件。
+                        通过勾选新闻选项表示你同意我们向你所填写的邮箱发送广告性质的邮件。</p>
+                    <p>2.为了向阁下提供更好的服务，你的个人信息如姓名将保存在云服务器，我们不会向第三方提供你的消息。</p>
+                    <p>3.我们保证不会损害阁下的权益，但如果由于你或他人对系统的恶意或不当使用所造成的后果，我们将不承担主要责任。</p>
+                    <p>4.你不被允许将本系统用于商业活动。</p>
+                    <p>5.我们保留对上述条款的最终解释权。</p>
+                    <p>6.在本系统注册账户即表明你同意以上所有条款</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary border-0"
+                        data-bs-dismiss="modal">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vertically centered scrollable modal -->
+    <div class="modal fade o0" id="sp_mod" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog o0 modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content r-15"
+                style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px) saturate(180%);-webkit-backdrop-filter: saturate(180%) blur(20px);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        <i class="bi bi-chat-dots-fill" style="color: #0008;"></i>
+                        Buy us a coffee
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src='./assets/images/money.jpg' class="img-fluid r-15 shadow-lg mb-4">
+                        <p>&nbsp;&nbsp;If you like our System and want to become a sponsor, you can contact us by
+                            Wechat with the QR code above.</p>
+                        <p>&nbsp;&nbsp;如果你对我们的系统感兴趣，可以通过以上方式联系我们。我们接收捐赠。</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary border-0" data-bs-dismiss="modal">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src=" https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/blueimp-md5/2.19.0/js/md5.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script> -->
+
+    <script src="assets/js/regist.js"></script>
+</body>
+
+<script>
+    $('.modal-dialog-centered').parent().on('show.bs.modal', function () {
+        $(this).find('.modal-content').addClass('animate__faster animate__animated animate__zoomIn')
+        $(this).find('.modal-body').addClass('animate__animated animate__fast animate__fadeInRight')
+    })
+</script>
+
+</html>

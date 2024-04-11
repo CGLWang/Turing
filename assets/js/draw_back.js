@@ -38,7 +38,7 @@ $(window).load(function () {
       // const float mouseSpeed  = 0.05;  // control the color changing
       const float fixedOffset = 1.57;//0.5;  // Drives complexity in the amount of curls/cuves.  Zero is a single whirlpool.
       const float fluidSpeed  = 0.03;  // Drives speed, smaller number will make it slower.
-       float baseColor   = 30.0;
+      float baseColor   = 30.0;
       const float BLUR        = 0.47;
   
       #define PI 3.14159
@@ -74,9 +74,9 @@ $(window).load(function () {
             + fixedOffset;
         }
       //   p += uMouse * mouseSpeed;
-      baseColor += baseColor*sin(t);
+      //baseColor += baseColor*sin(t);
       float color_range = baseColor;//0.5;
-      float base_color = baseColor>1.0?baseColor:1.0-baseColor;//0.5;
+      float base_color = baseColor;//>1.0?baseColor:1.0-baseColor;//0.5;
 
 
         vec2 grid = uGrid * 2.0; // set complexity to 0 to debug the grid
@@ -144,7 +144,6 @@ $(window).load(function () {
       _skip = _skip_fps;
       draw();
     });
-    // can.css('display','');
     can.fadeIn(3000)
   }, 5000)
   //********************************** */

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://127.0.0.1:8000/intouch/ -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" href="http://127.0.0.1:8000/static/assets/images/icloud_logo_sm.png" type="image/png"> -->
+    <link href="https://cdn.staticfile.org/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="assets/css/univ.css" rel="stylesheet">
+
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/spin.js/1.2.7/spin.min.js"></script><style type="text/css"></style>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- <link href="./InTouch_files/bootstrap-icons.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.staticfile.org/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <title>InTouch</title>
+    <style>
+        body{
+            height: 100vh;
+        }
+        *:not(.all_footer *):not(.nicescroll-rails):not(.nicescroll-rails *):not(.ace_editor):not(.ace_editor *) {
+            transition: all 200ms ease-out;
+        }
+
+        #send_bar:focus {
+            outline: none;
+        }
+
+        #send_bar {
+            font-family: Consolas, 'Courier New', monospace;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: medium;
+        }
+
+        .atxt {
+            /* display: inline-block; */
+            display: inline-block;
+            animation: flip;
+            animation-delay: 10ms;
+            animation-duration: 0.5s;
+        }
+
+        /* .head_slider_bar_grad {
+            height: 40px;
+            width: 100%;
+            background-image: linear-gradient(to right, rgb(185, 245, 253), rgb(109, 188, 248));
+            backdrop-filter: blur(42px);
+            -webkit-backdrop-filter: blur(42px);
+        } */
+
+        /* #head_slider_bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            z-index: -1;
+            filter: blur(42px);
+            background-size: cover;
+            background-image: linear-gradient(to right, rgb(185, 245, 253), rgb(109, 188, 248));
+        } */
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <div id="loader_div" style="position: absolute; justify-content: center; align-items: center; display: none; width: 100%; height: 100%;">
+    </div>
+    <script>
+        var spinner = new Spinner({ lines: 10 });
+        function triger_loader() {
+            var target = $("#loader_div").get(0);
+            spinner.spin(target);
+        }
+        function hide_loader() {
+            spinner.spin();
+            $("#loader_div").hide();
+        }
+        triger_loader();
+
+        $(window).ready(function () {
+            hide_loader()
+            $("#intouch_view")[0].style.filter = ""
+        })
+    </script>
+    <!-- height: calc(100% - 3rem); -->
+    <div class=" px-0 d-flex flex-column" id="intouch_view" style="transition: filter 0.6s ease 0s;height: calc(100vh - 3rem);">
+        <div class="flex-grow-1 d-flex flex-column " style="height: 100%;">
+            <!-- header -->
+            <div id="head_slider_bar" class="head_slider_bar_grad d-flex align-items-center  justify-content-between border-bottom border-primary">
+                <!-- app or device -->
+                <div class="d-flex align-items-center justify-content-between">
+                    <div id="sidebar_togger" class="d-lg-none d-md-block d-sm-block btn head_item">
+                        <i class="bi bi-three-dots- bi-list"></i>
+                    </div>
+                    <div class="dropdown">
+                        <!-- bi-chevron-down cornflowerblue-->
+                        <div class="head_item dropdown-toggle btn" data-bs-toggle="dropdown">
+                            <b class="text-primary">
+                                InTouch
+                            </b>
+                        </div>
+                        <div class="ms-1 dropdown-menu shadow-lg r-15 need-blur">
+                            <div class="d-flex">
+                                <a class="d-flex flex-column dropdown-item align-items-center justify-content-around r-15" href="/home.html">
+                                    <i class="bi-box p-2 border shadow text-primary " style="font-size: 3rem; border-radius: 15px;"></i>
+                                    Launch
+                                </a>
+                                <a class="disabled d-flex flex-column dropdown-item align-items-center justify-content-around r-15" href="/telnet.html">
+                                    <i class="bi-terminal  p-2 border shadow" style="font-size: 3rem; border-radius: 15px;"></i>
+                                    InTouch
+                                </a>
+                                <a class="d-flex flex-column dropdown-item align-items-center justify-content-around r-15" href="/regist.html">
+                                    <i class="bi-bug  p-2 border shadow text-danger" style="font-size: 3rem; border-radius: 15px;"></i>
+                                    My
+                                </a>
+                                <a class="d-flex flex-column dropdown-item align-items-center justify-content-around r-15">
+                                    <i class="bi-bullseye  p-2 border shadow text-success" style="font-size: 3rem; border-radius: 15px;"></i>
+                                    Scope
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p id="top_dev" class="mb-0 mx-4  text-truncate">dev15</p>
+                <div class="dropdown">
+                    <div class="head_item dropdown-toggle btn me-2" data-bs-toggle="dropdown">
+                        <i class=" bi-gear-wide-connected" style="font-size: 1.5rem;">
+                        </i>
+                    </div>
+
+                    <ul class="dropdown-menu shadow-lg r-15 need-blur">
+                        <li><a class="dropdown-item" href="http://127.0.0.1:8000/intouch/#">My account</a></li>
+                        <li><a class="dropdown-item" id="out_btn">Log out</a></li>
+                        <li><a class="dropdown-item" href="http://127.0.0.1:8000/intouch/#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- body -->
+            <div class="d-flex flex-grow-1" style="height: calc(100% - 40px);">
+                <!-- left content  device_list (name,status,last_time) rgb(226, 232, 240);-->
+                <div class="d-none d-lg-block d-flex flex-column border-end" id="list" style="width: 18%;min-width: 180px; background-color: rgb(230, 243, 255);">
+                    <div style="height: calc(100% - 3rem);width: 100%; box-shadow: inset 0 16px 16px -10px rgb(0 0 0 / 50%), inset 0 -16px 16px -10px rgb(0 0 0 / 50%);">
+                        <div id="dev_lists" class="flex-grow-1 d-flex flex-column" style="height: calc(100%);overflow-y: auto;">
+                            <table class=" table table-hover " id="dev_list">
+                                <tbody id="devices_avaliable">
+                                    
+                                    <tr class="border-bottom align-items-center my-2">
+                                        <td>
+                                            <div class="w-100">
+                                                <div class="d-flex align-items-center">
+                                                    
+                                                    <i class=" bi-circle-fill text-muted invisible" style="font-size: 0.3rem;"></i>
+                                                    
+                                                    <p class="my-1 mx-2  text-wrap dname">Home:dev14
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex justify-content-end">
+                                                    <small class="mb-0 mx-1 ">2022-04-10 18:41:20</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+    
+                                    
+                                    <tr class="border-bottom align-items-center my-2">
+                                        <td>
+                                            <div class="w-100">
+                                                <div class="d-flex align-items-center">
+                                                    
+                                                    <i class=" bi-circle-fill text-muted invisible" style="font-size: 0.3rem;"></i>
+                                                    
+                                                    <p class="my-1 mx-2  text-wrap dname">BedRoom2:dev15
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex justify-content-end">
+                                                    <small class="mb-0 mx-1 ">2022-10-26 12:42:50</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+    
+                                    
+                                    <tr class="border-bottom align-items-center my-2">
+                                        <td>
+                                            <div class="w-100">
+                                                <div class="d-flex align-items-center">
+                                                    
+                                                    <i class=" bi-circle-fill text-muted invisible" style="font-size: 0.3rem;"></i>
+                                                    
+                                                    <p class="my-1 mx-2  text-wrap dname">GRoom:dev13
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex justify-content-end">
+                                                    <small class="mb-0 mx-1 ">2022-10-28 23:23:42</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+    
+                                    
+                                    <tr class="border-bottom align-items-center my-2">
+                                        <td>
+                                            <div class="w-100">
+                                                <div class="d-flex align-items-center">
+                                                    
+                                                    <i class=" bi-circle-fill text-muted invisible" style="font-size: 0.3rem;"></i>
+                                                    
+                                                    <p class="my-1 mx-2  text-wrap dname">Home:dev2
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex justify-content-end">
+                                                    <small class="mb-0 mx-1 ">2022-12-07 05:20:59</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+    
+                                    
+                                    <tr class="border-bottom align-items-center my-2">
+                                        <td>
+                                            <div class="w-100">
+                                                <div class="d-flex align-items-center">
+                                                    
+                                                    <i class=" bi-circle-fill text-muted invisible" style="font-size: 0.3rem;"></i>
+                                                    
+                                                    <p class="my-1 mx-2  text-wrap dname">New:dev22
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex justify-content-end">
+                                                    <small class="mb-0 mx-1 ">2022-12-06 13:03:03</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+    
+                                    
+                                    <tr class="border-bottom align-items-center my-2">
+                                        <td>
+                                            <div class="w-100">
+                                                <div class="d-flex align-items-center">
+                                                    
+                                                    <i class=" bi-circle-fill text-muted invisible" style="font-size: 0.3rem;"></i>
+                                                    
+                                                    <p class="my-1 mx-2  text-wrap dname">Ins:dev3
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex justify-content-end">
+                                                    <small class="mb-0 mx-1 ">2022-09-24 18:40:16</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+    
+                                    
+                                    <tr class="border-bottom align-items-center my-2">
+                                        <td>
+                                            <div class="w-100">
+                                                <div class="d-flex align-items-center">
+                                                    
+                                                    <i class=" bi-circle-fill text-muted invisible" style="font-size: 0.3rem;"></i>
+                                                    
+                                                    <p class="my-1 mx-2  text-wrap dname">dev1:dev1
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex justify-content-end">
+                                                    <small class="mb-0 mx-1 ">2023-01-18 13:53:31</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="px-2 border-top border-dark d-flex justify-content-between align-items-center" style="height: 3rem;">
+                        <i id=del_dev_btn class='btn ib bi bi-dash-lg'></i>
+                        <i id=add_dev_btn class="btn ib bi bi-plus-lg"></i>
+                    </div>
+                </div>
+                <!-- right content 80% width -->
+                <div class="d-flex flex-column bg-light flex-grow-1 " style="height: calc(100vh - 3rem - 40px);">
+                    <div id="img_panel" class="d-none py-1 d-flex justify-content-center w-100 g2">
+                        <div class="me-5 my-2">
+                            <p id="p_fps">--fps</p>
+                            <p id="p_shape">shape:640x480</p>
+                            <p id="p_size">size:--Kb</p>
+                            <p id="p_pid">pid:-</p>
+                        </div>
+                        <img id="img_can" class="w-50">
+                        <div class="d-flex flex-column p-4 r-15" style="    width: 10rem">
+                            <div id="b_refresh" class="m-2 btn btn-primary">fresh</div>
+                            <div id="b_close" class="m-2 btn btn-primary">close</div>
+                            <div id="b_video" class="m-2 btn btn-primary">video</div>
+                            <div id="b_blur" class="m-2 btn btn-primary">blur</div>
+                        </div>
+                    </div>
+                    <pre id="chat_log" class="flex-grow-1 mb-0 px-2 py-2 " tabindex="1" style="overflow: hidden; outline: none;height: calc(100% - 3rem);box-shadow: inset 0 10px 10px -10px rgb(0 0 0 / 50%), inset 0 -10px 10px -10px rgb(0 0 0 / 50%);"></pre>
+                    <div class="d-flex align-items-center border-top border-secondary" style="height: 3rem;">
+                        <input type="text" id="send_bar" class="flex-grow-1 mx-2  px-2 rounded-pill border border-primary" maxlength="255">
+                        <i id="send_btn" class="btn-primary me-1 bi-arrow-up-circle rounded-circle" style="font-size: 1.5rem;height: 34px;width: 34px;text-align: center;line-height: 34px;"></i>
+                        <i id="clear_btn" class="btn-danger text-white me-1 bi-x-circle rounded-circle" style="font-size: 1.5rem;height: 34px;width: 34px;text-align: center;line-height: 34px;"></i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Modal -->
+    <div class="modal fade" id="new_dev_modal" data-bs-backdrop="false">
+        <div class="modal-dialog o0 -modal-dialog-centered">
+            <div class="modal-content o0 shadow-lg r-15"
+                style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px) saturate(180%);-webkit-backdrop-filter: saturate(180%) blur(20px);">
+                <div class="modal-header">
+                    <h5 class="modal-title">New device</h5>
+                </div>
+                <div class="modal-body rounded-3">
+                    <div class="container-fluid">
+                        <div class="row align-items-center mt-2 ">
+                            <span>please enter your device ID, if you have more than one device, seprate them with
+                                comma</span>
+                        </div>
+                        <div class="row align-items-center mt-4">
+                            <div class="col-3 text-end">
+                                <label>Device ID</label>
+                            </div>
+                            <input type="text" class="col-7" id="dev_ids" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel
+                    </button>
+                    <button type="button" class="btn text-primary" id="modal_add_btn">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="rm_dev_modal" data-bs-backdrop="false">
+        <div class="modal-dialog o0 modal-dialog-centered">
+            <div class="modal-content o0 shadow-lg r-15"
+                style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px) saturate(180%);-webkit-backdrop-filter: saturate(180%) blur(20px);">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-exclamation-triangle text-danger " style="font-size: 1.6 rem;"></i>
+                        Attention
+                    </h5>
+                </div>
+                <div class="modal-body rounded-3">
+                    Are your sure you want to delete this device?<br>
+                    You can readd the device if you have the Device ID.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel
+                    </button>
+                    <button type="button" class="btn text-danger" id="modal_rm_btn">
+                        <b>Yes</b>
+                    </button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    
+
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.staticfile.org/popper.js/2.11.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.staticfile.org/paho-mqtt/1.1.0/paho-mqtt.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <!--app JS-->
+    
+    <script src="assets/js/ansi-up.js"></script>
+    <script src="assets/js/telnet.js"></script>
+    <!-- <script src="assets/js/app_news.js"></script> -->
+    <script>
+        $("#sidebar_togger").click(function () {
+            if ($("#list").hasClass('d-none'))
+                $("#list").removeClass('d-none')
+            else
+                $("#list").addClass('d-none')
+        })
+    </script>
+
+<footer class="all_footer pb-1 px-2 text-white" style="text-align: right;height: 3rem;">
+    <p class="me-2" id="hint">@dev15:ping
+</p>
+</footer>
+
+<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 8px; z-index: auto; cursor: default; position: absolute; top: 40px; left: 1447.41px; height: 688.429px; display: none; opacity: 0;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 8px; z-index: auto; top: 720.429px; left: 263.411px; position: absolute; cursor: default; display: none; opacity: 0;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 6px; width: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; left: 0px;"></div></div></body></html>
